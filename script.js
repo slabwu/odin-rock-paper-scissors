@@ -20,6 +20,9 @@ function getPlayerChoice(round) {
     const validMoves = ['rock', 'paper', 'scissors'];
     if (choice && validMoves.includes(choice.toLowerCase())) {
         return choice.toLowerCase();
+    } else if (choice === null) {
+        alert('Game canceled.');
+        return 'stop';
     } else {
         alert('That\'s not a valid move! Try again.');
         getPlayerChoice(round);
@@ -33,6 +36,9 @@ function capitalize(string) {
 }
 
 function play(computerSelection, playerSelection) {
+    if (playerSelection === 'stop') {
+        return 'stop';
+    } else {
     alert(`The opponent plays ${computerSelection}.`);
     if (computerSelection === playerSelection) {
         alert('It\'s a tie!');
@@ -69,11 +75,14 @@ function play(computerSelection, playerSelection) {
         }
     }
 }
+}
 
 function game() {
     for (let i = 1; i <= 5; i++) {
-        play(getComputerChoice(), getPlayerChoice(i));
+        outcome = play(getComputerChoice(), getPlayerChoice(i));            
+        console.log(outcome);
+        if (outcome === 'stop') {
+            break;
+        }
     }
 }
-
-game();
