@@ -14,7 +14,7 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    let choice = prompt('Welcome to "Rock, Paper, Scissors"! What\'s your move?')
+    let choice = prompt('Welcome to "Rock, Paper, Scissors"! What\'s your move?');
     const validMoves = ['rock', 'paper', 'scissors'];
     if (choice && validMoves.includes(choice.toLowerCase())) {
         return choice.toLowerCase();
@@ -59,7 +59,7 @@ function game(computerSelection, playerSelection) {
             break;
         }
     }
+    confirm('Play again?') ? game(getComputerChoice(), getPlayerChoice()): null;
 }
 
 game(getComputerChoice(), getPlayerChoice());
-confirm('Play again?') ? game(getComputerChoice(), getPlayerChoice()): null;
