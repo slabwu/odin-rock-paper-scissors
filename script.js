@@ -80,7 +80,8 @@ function play(computerSelection, playerSelection) {
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 1; i <= 5; i++) {
+    let gameRounds = 5;
+    for (let i = 1; i <= gameRounds; i++) {
         outcome = play(getComputerChoice(), getPlayerChoice(i));            
         console.log(outcome);
         if (outcome === 'stop') {
@@ -96,7 +97,18 @@ function game() {
                     computerScore++;
                     break;
             }
-            console.log(playerScore, computerScore);
+            (i===gameRounds) ? 
+                alert(`Your Final Score: ${playerScore} \nTheir Final Score: ${computerScore}`):
+                alert(`Your Score: ${playerScore} \nTheir Score: ${computerScore}`);
+            if (i===gameRounds) {
+                if (playerScore === computerScore) {
+                    alert(`You are tied with the opponent!`);
+                } else if (playerScore > computerScore) {
+                    alert(`You won the game!`);   
+                } else {
+                    alert(`You lost the game!`);
+                }
+            }
         }
     }
 }
