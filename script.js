@@ -13,20 +13,52 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerChoice () {
+function getPlayerChoice() {
     let choice = prompt('Welcome to "Rock, Paper, Scissors"! What\'s your move?')
     const validMoves = ['rock', 'paper', 'scissors'];
-    console.log(validMoves);
-    if (validMoves.includes(choice.toLowerCase())) {
+    if (choice && validMoves.includes(choice.toLowerCase())) {
         return choice.toLowerCase();
     } else {
-        alert("That's not a valid move! Try again.");
+        alert('That\'s not a valid move! Try again.');
         getPlayerChoice();
     }
 }
 
-let computerSelection = getComputerChoice();
-let playerSelection = getPlayerChoice();
+function capitalize(string) {
+    string = string.toLowerCase();
+    letter = string.slice(0, 1);
+    return string.replace(letter, letter.toUpperCase());
+}
 
-console.log(computerSelection);
-console.log(playerSelection);
+function game(computerSelection, playerSelection) {
+    alert(`The opponent plays ${computerSelection}.`);
+    if (computerSelection === playerSelection) {
+        alert('It\'s a tie!');
+    } else {
+        switch (playerSelection) {
+        case 'rock':
+            if (computerSelection === 'scissors') {
+                alert(`You win! ${capitalize(playerSelection)} beats ${computerSelection}.`); 
+            } else {
+                alert(`You lose! ${capitalize(computerSelection)} beats ${playerSelection}.`);           
+            }
+            break;
+        case 'paper':
+            if (computerSelection === 'rock') {
+                alert(`You win! ${capitalize(playerSelection)} beats ${computerSelection}.`); 
+            } else {
+                alert(`You lose! ${capitalize(computerSelection)} beats ${playerSelection}.`);           
+            }
+            break;
+        case 'scissors':
+            if (computerSelection === 'paper') {
+                alert(`You win! ${capitalize(playerSelection)} beats ${computerSelection}.`); 
+            } else {
+                alert(`You lose! ${capitalize(computerSelection)} beats ${playerSelection}.`);           
+            }
+            break;
+        }
+    }
+}
+
+game(getComputerChoice(), getPlayerChoice());
