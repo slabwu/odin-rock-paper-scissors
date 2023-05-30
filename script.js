@@ -62,3 +62,4 @@ function game(computerSelection, playerSelection) {
 }
 
 game(getComputerChoice(), getPlayerChoice());
+confirm('Play again?') ? game(getComputerChoice(), getPlayerChoice()): null;
