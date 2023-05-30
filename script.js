@@ -78,11 +78,25 @@ function play(computerSelection, playerSelection) {
 }
 
 function game() {
+    let playerScore = 0;
+    let computerScore = 0;
     for (let i = 1; i <= 5; i++) {
         outcome = play(getComputerChoice(), getPlayerChoice(i));            
         console.log(outcome);
         if (outcome === 'stop') {
             break;
+        } else {
+            switch (outcome) {
+                case 'tie':
+                    break;
+                case 'win':
+                    playerScore++;
+                    break;
+                case 'loss':
+                    computerScore++;
+                    break;
+            }
+            console.log(playerScore, computerScore);
         }
     }
 }
