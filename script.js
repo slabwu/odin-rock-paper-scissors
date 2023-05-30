@@ -108,6 +108,7 @@ function game() {
                 } else {
                     alert(`You lost the game!`);
                 }
+                confirm('Play again?') ? game() : null;
             }
         }
     }
