@@ -1,3 +1,30 @@
 body {
     font-family: 'Bungee Inline', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
+
+.selection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+button {
+    flex: initial;
+    margin: 0 5vw;
+    height: 100px;
+    width: 100px;
+}
+
+.score {
+    display: flex;
+    flex-direction: row;
+}
+
+.player-score-container, .computer-score-container {
+    flex: 1;
+}
+
