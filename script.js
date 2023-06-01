@@ -13,6 +13,11 @@ function getComputerChoice() {
     }
 }
 
+function getPlayerChoice(e) {
+    choice = this.classList.value;
+    return choice;
+}
+
 function capitalize(string) {
     string = string.toLowerCase();
     letter = string.slice(0, 1);
@@ -100,13 +105,15 @@ function playGame() {
 
 const buttons = document.querySelectorAll('button');
 const playerChoiceDisplay = document.querySelector('.player');
+const computerChoiceDisplay = document.querySelector('.computer');
 
-buttons.forEach(button => button.addEventListener('click', getPlayerChoice));
+buttons.forEach(button => button.addEventListener('click', getChoice));
 
-function getPlayerChoice(e) {
-    choice = this.classList.value;
-    playerChoiceDisplay.textContent = `You play ${choice}.`;
-    return choice;
+function getChoice(e) {
+    playerSelection = this.classList.value;
+    computerSelection = getComputerChoice();
+    playerChoiceDisplay.textContent = `You play ${playerSelection}.`;
+    computerChoiceDisplay.textContent = `The opponent plays ${computerSelection}.`;
 }
 
 
