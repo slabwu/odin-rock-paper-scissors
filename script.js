@@ -13,11 +13,6 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerChoice(e) {
-    choice = this.classList.value;
-    return choice;
-}
-
 function capitalize(string) {
     string = string.toLowerCase();
     letter = string.slice(0, 1);
