@@ -13,22 +13,6 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerChoice(round) {
-    let choice = (round === 1) ? 
-        prompt('Welcome to round 1 of "Rock, Paper, Scissors"! What\'s your move?'): 
-        prompt(`Round ${round}: What's your move?`); 
-    const validMoves = ['rock', 'paper', 'scissors'];
-    if (choice && validMoves.includes(choice.toLowerCase())) {
-        return choice.toLowerCase();
-    } else if (choice === null) {
-        alert('Game canceled.');
-        return 'stop';
-    } else {
-        alert('That\'s not a valid move! Try again.');
-        getPlayerChoice(round);
-    }
-}
-
 function capitalize(string) {
     string = string.toLowerCase();
     letter = string.slice(0, 1);
@@ -113,5 +97,18 @@ function playGame() {
         }
     }
 }
+
+const buttons = document.querySelectorAll('button');
+const playerChoiceDisplay = document.querySelector('.player');
+
+buttons.forEach(button => button.addEventListener('click', getPlayerChoice));
+
+function getPlayerChoice(e) {
+    choice = this.classList.value;
+    playerChoiceDisplay.textContent = `You play ${choice}.`;
+    return choice;
+}
+
+
 
 
