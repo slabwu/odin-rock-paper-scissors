@@ -52,11 +52,21 @@ function capitalize(string) {
     return string.replace(letter, letter.toUpperCase());
 }
 
+buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
+
+function removeTransition(e) {
+    if(e.propertyName !== 'transform') return;
+    document.body.classList.remove('shake');
+}
+
+
 
 
 
 
 function playGame(e) {
+    document.body.classList.add('shake');
+
     if (playerScore !== 5 && computerScore !== 5) {
     playerSelection = this.classList.value;
     computerSelection = getComputerChoice();
