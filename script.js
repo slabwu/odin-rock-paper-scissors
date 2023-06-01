@@ -24,43 +24,6 @@ function capitalize(string) {
     return string.replace(letter, letter.toUpperCase());
 }
 
-function playGame() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let gameRounds = 5;
-    for (let i = 1; i <= gameRounds; i++) {
-        outcome = playRound(getComputerChoice(), getPlayerChoice(i));            
-        console.log(outcome);
-        if (outcome === 'stop') {
-            break;
-        } else {
-            switch (outcome) {
-                case 'tie':
-                    break;
-                case 'win':
-                    playerScore++;
-                    break;
-                case 'loss':
-                    computerScore++;
-                    break;
-            }
-            (i===gameRounds) ? 
-                alert(`Your Final Score: ${playerScore} \nTheir Final Score: ${computerScore}`):
-                alert(`Your Score: ${playerScore} \nTheir Score: ${computerScore}`);
-            if (i===gameRounds) {
-                if (playerScore === computerScore) {
-                    alert(`You are tied with the opponent!`);
-                } else if (playerScore > computerScore) {
-                    alert(`You won the game!`);   
-                } else {
-                    alert(`You lost the game!`);
-                }
-                confirm('Play again?') ? game() : null;
-            }
-        }
-    }
-}
-
 const buttons = document.querySelectorAll('button');
 const playerChoiceDisplay = document.querySelector('.player');
 const computerChoiceDisplay = document.querySelector('.computer');
@@ -91,9 +54,9 @@ function createEmoji (name) {
     }
 }
 
-buttons.forEach(button => button.addEventListener('click', getChoice));
+buttons.forEach(button => button.addEventListener('click', playGame));
 
-function getChoice(e) {
+function playGame(e) {
     if (playerScore !== 5 && computerScore !== 5) {
     playerSelection = this.classList.value;
     computerSelection = getComputerChoice();
