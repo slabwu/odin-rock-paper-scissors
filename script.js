@@ -35,7 +35,7 @@ function capitalize(string) {
     return string.replace(letter, letter.toUpperCase());
 }
 
-function play(computerSelection, playerSelection) {
+function playRound(computerSelection, playerSelection) {
     if (playerSelection === 'stop') {
         return 'stop';
     } else {
@@ -77,12 +77,12 @@ function play(computerSelection, playerSelection) {
 }
 }
 
-function game() {
+function playGame() {
     let playerScore = 0;
     let computerScore = 0;
     let gameRounds = 5;
     for (let i = 1; i <= gameRounds; i++) {
-        outcome = play(getComputerChoice(), getPlayerChoice(i));            
+        outcome = playRound(getComputerChoice(), getPlayerChoice(i));            
         console.log(outcome);
         if (outcome === 'stop') {
             break;
@@ -114,4 +114,4 @@ function game() {
     }
 }
 
-game();
+
