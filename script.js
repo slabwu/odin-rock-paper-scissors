@@ -24,48 +24,6 @@ function capitalize(string) {
     return string.replace(letter, letter.toUpperCase());
 }
 
-function playRound(computerSelection, playerSelection) {
-    if (playerSelection === 'stop') {
-        return 'stop';
-    } else {
-    alert(`The opponent plays ${computerSelection}.`);
-    if (computerSelection === playerSelection) {
-        alert('It\'s a tie!');
-        return 'tie';
-    } else {
-        switch (playerSelection) {
-        case 'rock':
-            if (computerSelection === 'scissors') {
-                alert(`You win! ${capitalize(playerSelection)} beats ${computerSelection}.`); 
-                return 'win';
-            } else {
-                alert(`You lose! ${capitalize(computerSelection)} beats ${playerSelection}.`);   
-                return 'loss';        
-            }
-            break;
-        case 'paper':
-            if (computerSelection === 'rock') {
-                alert(`You win! ${capitalize(playerSelection)} beats ${computerSelection}.`); 
-                return 'win';
-            } else {
-                alert(`You lose! ${capitalize(computerSelection)} beats ${playerSelection}.`);   
-                return 'loss';        
-            }
-            break;
-        case 'scissors':
-            if (computerSelection === 'paper') {
-                alert(`You win! ${capitalize(playerSelection)} beats ${computerSelection}.`);
-                return 'win';
-            } else {
-                alert(`You lose! ${capitalize(computerSelection)} beats ${playerSelection}.`);
-                return 'loss';           
-            }
-            break;
-        }
-    }
-}
-}
-
 function playGame() {
     let playerScore = 0;
     let computerScore = 0;
@@ -106,16 +64,77 @@ function playGame() {
 const buttons = document.querySelectorAll('button');
 const playerChoiceDisplay = document.querySelector('.player');
 const computerChoiceDisplay = document.querySelector('.computer');
+const playerScoreDisplay = document.querySelector('.player-score');
+const computerScoreDisplay = document.querySelector('.computer-score');
+const result = document.querySelector('.result');
+
+
+let playerScore = 0;
+let computerScore = 0;
+
+playerScoreDisplay.textContent = `${playerScore}`;
+computerScoreDisplay.textContent = `${computerScore}`;
+
+
+function createEmoji (name) {
+    switch (name) {
+        case 'rock':
+            return '✊';
+            break;
+        case 'paper':
+            return '✋';
+            break;
+        case 'scissors':
+            return '✌️';
+            break;
+    }
+}
 
 buttons.forEach(button => button.addEventListener('click', getChoice));
 
 function getChoice(e) {
     playerSelection = this.classList.value;
     computerSelection = getComputerChoice();
-    playerChoiceDisplay.textContent = `You play ${playerSelection}.`;
-    computerChoiceDisplay.textContent = `The opponent plays ${computerSelection}.`;
+
+    playerChoiceDisplay.textContent = `You play ${playerSelection}. ${createEmoji(playerSelection)}`;
+    computerChoiceDisplay.textContent = `The opponent plays ${computerSelection}. ${createEmoji(computerSelection)}`;
+
+    playRound(playerSelection, computerSelection);
 }
 
-
-
-
+function playRound(computerSelection, playerSelection) {
+    if (computerSelection === playerSelection) {
+        result.textContent = 'It\'s a tie!';
+        return 'tie';
+    } else {
+        switch (playerSelection) {
+        case 'rock':
+            if (computerSelection === 'scissors') {
+                result.textContent = `You win! ${capitalize(playerSelection)} beats ${computerSelection}.`; 
+                return 'win';
+            } else {
+                result.textContent = `You lose! ${capitalize(computerSelection)} beats ${playerSelection}.`;   
+                return 'loss';        
+            }
+            break;
+        case 'paper':
+            if (computerSelection === 'rock') {
+                result.textContent = `You win! ${capitalize(playerSelection)} beats ${computerSelection}.`; 
+                return 'win';
+            } else {
+                result.textContent = `You lose! ${capitalize(computerSelection)} beats ${playerSelection}.`;   
+                return 'loss';        
+            }
+            break;
+        case 'scissors':
+            if (computerSelection === 'paper') {
+                result.textContent = `You win! ${capitalize(playerSelection)} beats ${computerSelection}.`; 
+                return 'win';
+            } else {
+                result.textContent = `You lose! ${capitalize(computerSelection)} beats ${playerSelection}.`;   
+                return 'loss';           
+            }
+            break;
+        }
+    }
+}
