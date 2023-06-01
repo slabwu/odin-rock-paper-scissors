@@ -67,6 +67,7 @@ const computerChoiceDisplay = document.querySelector('.computer');
 const playerScoreDisplay = document.querySelector('.player-score');
 const computerScoreDisplay = document.querySelector('.computer-score');
 const result = document.querySelector('.result');
+const finalResult = document.querySelector('.final-result');
 
 
 let playerScore = 0;
@@ -93,13 +94,18 @@ function createEmoji (name) {
 buttons.forEach(button => button.addEventListener('click', getChoice));
 
 function getChoice(e) {
+    if (playerScore !== 5 && computerScore !== 5) {
     playerSelection = this.classList.value;
     computerSelection = getComputerChoice();
 
     playerChoiceDisplay.textContent = `You play ${playerSelection}. ${createEmoji(playerSelection)}`;
     computerChoiceDisplay.textContent = `The opponent plays ${computerSelection}. ${createEmoji(computerSelection)}`;
 
-    playRound(playerSelection, computerSelection);
+    outcome = playRound(playerSelection, computerSelection);
+    changeScore(outcome);
+    }
+    if (playerScore === 5) finalResult.textContent = "You won the game!!!";
+    if (computerScore === 5) finalResult.textContent = "You lost the game!!!";
 }
 
 function playRound(computerSelection, playerSelection) {
@@ -138,3 +144,17 @@ function playRound(computerSelection, playerSelection) {
         }
     }
 }
+
+function changeScore(outcome) {
+    switch (outcome) {
+        case 'tie':
+            break;
+        case 'win':
+            playerScore++;
+            playerScoreDisplay.textContent = `${playerScore}`;
+            break;
+        case 'loss':
+            computerScore++;
+            computerScoreDisplay.textContent = `${computerScore}`;
+            break;
+}}
