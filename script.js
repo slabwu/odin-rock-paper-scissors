@@ -1,3 +1,36 @@
+const buttons = document.querySelectorAll('button');
+const playerChoiceDisplay = document.querySelector('.player');
+const computerChoiceDisplay = document.querySelector('.computer');
+const playerScoreDisplay = document.querySelector('.player-score');
+const computerScoreDisplay = document.querySelector('.computer-score');
+const result = document.querySelector('.result');
+const finalResult = document.querySelector('.final-result');
+
+
+let playerScore = 0;
+let computerScore = 0;
+
+playerScoreDisplay.textContent = `${playerScore}`;
+computerScoreDisplay.textContent = `${computerScore}`;
+
+
+
+
+
+function createEmoji (name) {
+    switch (name) {
+        case 'rock':
+            return '✊';
+            break;
+        case 'paper':
+            return '✋';
+            break;
+        case 'scissors':
+            return '✌️';
+            break;
+    }
+}
+
 function getComputerChoice() {
     let choice = Math.floor(Math.random()*3) + 1;
     switch (choice) {
@@ -19,37 +52,9 @@ function capitalize(string) {
     return string.replace(letter, letter.toUpperCase());
 }
 
-const buttons = document.querySelectorAll('button');
-const playerChoiceDisplay = document.querySelector('.player');
-const computerChoiceDisplay = document.querySelector('.computer');
-const playerScoreDisplay = document.querySelector('.player-score');
-const computerScoreDisplay = document.querySelector('.computer-score');
-const result = document.querySelector('.result');
-const finalResult = document.querySelector('.final-result');
 
 
-let playerScore = 0;
-let computerScore = 0;
 
-playerScoreDisplay.textContent = `${playerScore}`;
-computerScoreDisplay.textContent = `${computerScore}`;
-
-
-function createEmoji (name) {
-    switch (name) {
-        case 'rock':
-            return '✊';
-            break;
-        case 'paper':
-            return '✋';
-            break;
-        case 'scissors':
-            return '✌️';
-            break;
-    }
-}
-
-buttons.forEach(button => button.addEventListener('click', playGame));
 
 function playGame(e) {
     if (playerScore !== 5 && computerScore !== 5) {
@@ -116,3 +121,9 @@ function changeScore(outcome) {
             computerScoreDisplay.textContent = `${computerScore}`;
             break;
 }}
+
+
+
+
+
+buttons.forEach(button => button.addEventListener('click', playGame));
