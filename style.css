@@ -26,11 +26,27 @@ h1 {
 
 button {
     flex: initial;
-    margin: 0 2vw;
+    margin: 1vw 3vw;
     height: 100px;
     width: 100px;
     font-size: 50px;
+    border-radius: 100px;
+    border: none;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    animation: tilt-shaking 1s infinite;
+    transition: transform 0.1s;
 }
+
+button:hover {
+    transform: scale(1.2,1.2);
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+button:active {
+    transform: scale(1.4,1.0) rotate(10deg) translate(0, 10px);
+}
+
+
 
 
 
