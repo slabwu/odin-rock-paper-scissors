@@ -62,7 +62,7 @@ function playGame(e) {
     computerSelection = getComputerChoice();
 
     playerChoiceDisplay.textContent = `You play ${playerSelection}. ${createEmoji(playerSelection)}`;
-    computerChoiceDisplay.textContent = `The opponent plays ${computerSelection}. ${createEmoji(computerSelection)}`;
+    computerChoiceDisplay.textContent = `They play ${computerSelection}. ${createEmoji(computerSelection)}`;
 
     outcome = playRound(playerSelection, computerSelection);
     changeScore(outcome);
