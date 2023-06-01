@@ -65,8 +65,6 @@ function removeTransition(e) {
 
 
 function playGame(e) {
-    document.body.classList.add('shake');
-
     if (playerScore !== 5 && computerScore !== 5) {
     playerSelection = this.classList.value;
     computerSelection = getComputerChoice();
@@ -76,9 +74,12 @@ function playGame(e) {
 
     outcome = playRound(playerSelection, computerSelection);
     changeScore(outcome);
-    }
+    } else {
     if (playerScore === 5) finalResult.textContent = "You won the game!!!";
     if (computerScore === 5) finalResult.textContent = "You lost the game!!!";
+    buttons.forEach(button => button.textContent = '👏');
+    document.body.classList.add('shake');
+    }
 }
 
 function playRound(computerSelection, playerSelection) {
