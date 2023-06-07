@@ -19,14 +19,9 @@ let computerScore = 0;
 playerScoreDisplay.textContent = `${playerScore}`;
 computerScoreDisplay.textContent = `${computerScore}`;
 
-const happyEmojis = "😀😃😄😁😆😅🤣😂🙂😉😊😍🤩😘😗😊😚😙😋😛😜🤪😝😏"
-const happy = happyEmojis.split("");
-
-const mehEmojis = "🙄😑😶🫤😕😟😲😯😮😶😑😗😬🙄😦😧"
-const meh = mehEmojis.split("");
-
-const sadEmojis = "🥲🤨😒🙄😬😮‍💨😵🤮🤢😳😧😰😨😥😢😭😣😖😱😫😩😓🥺😞"
-const sad = sadEmojis.split("");
+const happy = [...'😀😃😄😁😆😅🤣😂🙂😉😊😍🤩😘😗😊😚😙😋😛😜🤪😝😏'];
+const meh = [...'🙄😑😶🫤😕😟😲😯😮😶😑😗😬🙄😦😧'];
+const sad = [...'🥲🤨😒🙄😬😮‍💨😵🤮🤢😳😧😰😨😥😢😭😣😖😱😫😩😓🥺😞'];
 
 
 
@@ -144,14 +139,20 @@ function playRound(computerSelection, playerSelection) {
 function changeScore(outcome) {
     switch (outcome) {
         case 'tie':
+            playerHead.textContent = meh[Math.floor(Math.random()*meh.length)];
+            computerHead.textContent = meh[Math.floor(Math.random()*meh.length)];
             break;
         case 'win':
             playerScore++;
             playerScoreDisplay.textContent = `${playerScore}`;
+            playerHead.textContent = happy[Math.floor(Math.random()*happy.length)];
+            computerHead.textContent = sad[Math.floor(Math.random()*sad.length)];
             break;
         case 'loss':
             computerScore++;
             computerScoreDisplay.textContent = `${computerScore}`;
+            playerHead.textContent = sad[Math.floor(Math.random()*sad.length)];
+            computerHead.textContent = happy[Math.floor(Math.random()*happy.length)];
             break;
 }}
 
