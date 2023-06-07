@@ -107,13 +107,14 @@ button:active {
     position: relative;
     font-size: 8vw;
     z-index: 2;
-    margin: -5vw;
+    margin: -6vw;
 }
 
 .hand {
     position: relative;
     font-size: 5vw;
     z-index: 2;
+    transition: transform 0.1s;
 }
 
 .action {
@@ -122,4 +123,12 @@ button:active {
 
 .player, .computer {
     flex: 1;
+}
+
+.left {
+    transform: rotate(30deg);
+}
+
+.right {
+    transform: rotate(-30deg);
 }

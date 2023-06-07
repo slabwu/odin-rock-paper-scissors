@@ -22,7 +22,7 @@ computerScoreDisplay.textContent = `${computerScore}`;
 const happy = [...'😀😃😄😁😆😅🤣😂🙂😉😊😍🤩😘😗😊😚😙😋😛😜🤪😝😏'];
 const meh = [...'🙄😑😶🫤😕😟😲😯😮😶😑😗😬🙄😦😧'];
 const sad = [...'🥲🤨😒🙄😬😮😵🤮😳😧😰😨😥😢😭😣😖😫😩😓🥺😞'];
-const hat = [...'󠀠🎩🎓👒󠀠🎀🧢📍']
+const hat = [...'󠀠🎩🎓👒🎀🧢📍']
 
 playerHead.textContent = feel(happy);
 computerHead.textContent = feel(happy);
@@ -81,7 +81,14 @@ function feel(emotion) {
 }
 
 function wear(hat) {
-    return hat[Math.floor(Math.random()*hat.length)];
+    id = hat[Math.floor(Math.random()*hat.length)];
+    switch (id) {
+        case 3:
+        case 4:
+            playerHat.style.marginBottom = "-50px";
+            break;
+    }
+    return id
 }
 
 
