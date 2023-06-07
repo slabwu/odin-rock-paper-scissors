@@ -91,7 +91,7 @@ button:active {
 }
 
 
-.player {
+.head {
     position: relative;
     font-size: 10vw;
     z-index: 1;
@@ -108,4 +108,12 @@ button:active {
     position: relative;
     font-size: 5vw;
     z-index: 2;
+}
+
+.action {
+    display: flex;
+}
+
+.player, .computer {
+    flex: 1;
 }

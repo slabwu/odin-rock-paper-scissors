@@ -6,12 +6,24 @@ const computerScoreDisplay = document.querySelector('.computer-score');
 const result = document.querySelector('.result');
 const finalResult = document.querySelector('.final-result');
 
+const playerHat = document.querySelector('.player-container.hat');
+const playerHead = document.querySelector('.player-container.head');
+const playerHand = document.querySelector('.icon.hand');
 
 let playerScore = 0;
 let computerScore = 0;
 
 playerScoreDisplay.textContent = `${playerScore}`;
 computerScoreDisplay.textContent = `${computerScore}`;
+
+const happyEmojis = "😀😃😄😁😆😅🤣😂🙂😉😊😍🤩😘😗😊😚😙😋😛😜🤪😝😏"
+const happy = happyEmojis.split("");
+
+const mehEmojis = "🙄😑😶🫤😕😟😲😯😮😶😑😗😬🙄😦😧"
+const meh = mehEmojis.split("");
+
+const sadEmojis = "🥲🤨😒🙄😬😮‍💨😵🤮🤢😳😧😰😨😥😢😭😣😖😱😫😩😓🥺😞"
+const sad = sadEmojis.split("");
 
 
 
