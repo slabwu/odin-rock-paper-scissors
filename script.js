@@ -22,9 +22,13 @@ computerScoreDisplay.textContent = `${computerScore}`;
 const happy = [...'😀😃😄😁😆😅🤣😂🙂😉😊😍🤩😘😗😊😚😙😋😛😜🤪😝😏'];
 const meh = [...'🙄😑😶🫤😕😟😲😯😮😶😑😗😬🙄😦😧'];
 const sad = [...'🥲🤨😒🙄😬😮😵🤮😳😧😰😨😥😢😭😣😖😱😫😩😓🥺😞'];
+const hat = [...'🎀🎩🎓👒🎀🧢📍']
 
 playerHead.textContent = happy[Math.floor(Math.random()*happy.length)]
 computerHead.textContent = happy[Math.floor(Math.random()*happy.length)]
+
+playerHat.textContent = hat[Math.floor(Math.random()*hat.length)]
+computerHat.textContent = hat[Math.floor(Math.random()*hat.length)]
 
 
 
