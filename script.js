@@ -24,11 +24,11 @@ const meh = [...'🙄😑😶🫤😕😟😲😯😮😶😑😗😬🙄😦�
 const sad = [...'🥲🤨😒🙄😬😮😵🤮😳😧😰😨😥😢😭😣😖😱😫😩😓🥺😞'];
 const hat = [...'🎀🎩🎓👒🎀🧢📍']
 
-playerHead.textContent = happy[Math.floor(Math.random()*happy.length)]
-computerHead.textContent = happy[Math.floor(Math.random()*happy.length)]
+playerHead.textContent = feel(happy);
+computerHead.textContent = feel(happy);
 
-playerHat.textContent = hat[Math.floor(Math.random()*hat.length)]
-computerHat.textContent = hat[Math.floor(Math.random()*hat.length)]
+playerHat.textContent = wear(hat);
+computerHat.textContent = wear(hat);
 
 
 
@@ -76,6 +76,13 @@ function removeTransition(e) {
     document.body.classList.remove('shake');
 }
 
+function feel(emotion) {
+    return emotion[Math.floor(Math.random()*emotion.length)];
+}
+
+function wear(hat) {
+    return hat[Math.floor(Math.random()*hat.length)];
+}
 
 
 
@@ -143,20 +150,20 @@ function playRound(playerSelection, computerSelection) {
 function changeScore(outcome) {
     switch (outcome) {
         case 'tie':
-            // playerHead.textContent = meh[Math.floor(Math.random()*meh.length)];
-            // computerHead.textContent = meh[Math.floor(Math.random()*meh.length)];
+            playerHead.textContent = feel(meh);
+            computerHead.textContent = feel(meh);
             break;
         case 'win':
             playerScore++;
             playerScoreDisplay.textContent = `${playerScore}`;
-            // playerHead.textContent = happy[Math.floor(Math.random()*happy.length)];
-            // computerHead.textContent = sad[Math.floor(Math.random()*sad.length)];
+            playerHead.textContent = feel(happy);
+            computerHead.textContent = feel(sad);
             break;
         case 'loss':
             computerScore++;
             computerScoreDisplay.textContent = `${computerScore}`;
-            // playerHead.textContent = sad[Math.floor(Math.random()*sad.length)];
-            // computerHead.textContent = happy[Math.floor(Math.random()*happy.length)];
+            playerHead.textContent = feel(sad);
+            computerHead.textContent = feel(happy);
             break;
 }}
 
