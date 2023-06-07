@@ -85,4 +85,27 @@ button:active {
 
 .player-updates, .computer-updates {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.player {
+    position: relative;
+    font-size: 10vw;
+    z-index: 1;
+}
+
+.hat {
+    position: relative;
+    font-size: 8vw;
+    z-index: 2;
+    margin: -5vw;
+}
+
+.hand {
+    position: relative;
+    font-size: 5vw;
+    z-index: 2;
 }
