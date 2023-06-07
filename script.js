@@ -74,11 +74,12 @@ function playGame(e) {
 
     outcome = playRound(playerSelection, computerSelection);
     changeScore(outcome);
-    } else {
-    if (playerScore === 5) finalResult.textContent = "You won the game!!!";
-    if (computerScore === 5) finalResult.textContent = "You lost the game!!!";
-    buttons.forEach(button => button.textContent = '👏');
-    document.body.classList.add('shake');
+    }
+    if (playerScore === 5 || computerScore === 5) {
+        if (playerScore === 5) finalResult.textContent = "You won the game!!!";
+        if (computerScore === 5) finalResult.textContent = "You lost the game!!!";
+        buttons.forEach(button => button.textContent = '👏');
+        document.body.classList.add('shake');
     }
 }
 
@@ -138,3 +139,4 @@ function changeScore(outcome) {
 
 
 buttons.forEach(button => button.addEventListener('click', playGame));
+console.log(playerScore)
