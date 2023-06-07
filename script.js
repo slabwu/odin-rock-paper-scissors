@@ -6,9 +6,12 @@ const computerScoreDisplay = document.querySelector('.computer-score');
 const result = document.querySelector('.result');
 const finalResult = document.querySelector('.final-result');
 
-const playerHat = document.querySelector('.player-container.hat');
-const playerHead = document.querySelector('.player-container.head');
-const playerHand = document.querySelector('.icon.hand');
+const playerHat = document.querySelector('.player-container .hat');
+const playerHead = document.querySelector('.player-container .head');
+const playerHand = document.querySelector('.player-updates .hand');
+const computerHat = document.querySelector('.computer-container .hat');
+const computerHead = document.querySelector('.computer-container .head');
+const computerHand = document.querySelector('.computer-updates .hand');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -80,9 +83,15 @@ function playGame(e) {
     if (playerScore !== 5 && computerScore !== 5) {
     playerSelection = this.classList.value;
     computerSelection = getComputerChoice();
+    
+    playerHand.textContent = `${createEmoji(playerSelection)}`;
+    computerHand.textContent = `${createEmoji(computerSelection)}`;
 
     playerChoiceDisplay.textContent = `You play ${playerSelection}. ${createEmoji(playerSelection)}`;
     computerChoiceDisplay.textContent = `They play ${computerSelection}. ${createEmoji(computerSelection)}`;
+
+    
+
 
     outcome = playRound(playerSelection, computerSelection);
     changeScore(outcome);
